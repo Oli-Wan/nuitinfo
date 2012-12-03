@@ -13,3 +13,24 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore Sublime Text 2 project files
+/*sublime*
+
+# Ignore other unneeded files.
+doc/
+*.swp
+*~
+.project
+.DS_Store
+*.iml
+*.ipr
+*.iws
+*.ids
+.idea/
+
+# Ignore test uploads
+public/system/*
+
+# Ignore Private AWS config
+config/initializers/dev_env.rb
