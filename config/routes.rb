@@ -1,5 +1,8 @@
 Nuitinfo::Application.routes.draw do
 
+  resources :tags
+
+
   resources :media
 
 
