@@ -2,11 +2,14 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+
+
+
     @items = Item.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @items }
+      format.json
     end
   end
 
@@ -17,7 +20,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @item }
+      format.json
     end
   end
 
@@ -42,6 +45,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
 
+    get_relations_from_params
+
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -57,6 +62,8 @@ class ItemsController < ApplicationController
   # PUT /items/1.json
   def update
     @item = Item.find(params[:id])
+
+    get_relations_from_params
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
@@ -79,5 +86,18 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def get_relations_from_params
+    @item.parent = @parent
+    @item.author = @author
+
+    @tags = Array.new
+    params[:tags].each do |tag|
+      @tags << Tag.find(tag[:id])
+    end
+
+    @item.tags = @tags
   end
 end
