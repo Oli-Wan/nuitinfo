@@ -9,6 +9,7 @@ gem 'devise'
 
 group :development do
   gem 'sqlite3'
+  gem 'annotate', '~> 2.5.0'
 end
 
 # Gems used only for assets and not required
