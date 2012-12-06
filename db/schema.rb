@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20121206203122) do
     t.string   "name"
     t.text     "content"
     t.date     "date"
-    t.string   "location"
     t.string   "content_type"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

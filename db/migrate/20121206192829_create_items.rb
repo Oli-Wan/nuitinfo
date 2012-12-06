@@ -4,7 +4,6 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.text :content
       t.date :date
-      t.string :location
       t.string :content_type
 
       t.timestamps
