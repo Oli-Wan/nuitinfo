@@ -11,12 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206171445) do
+ActiveRecord::Schema.define(:version => 20121206200707) do
 
   create_table "items", :force => true do |t|
-    t.string   "title"
-    t.string   "content"
+    t.string   "name"
+    t.text     "content"
     t.date     "date"
+    t.string   "location"
+    t.string   "content_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.boolean  "published"
+  end
+
+  create_table "media", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "media_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "item_id"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
