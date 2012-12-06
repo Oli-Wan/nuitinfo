@@ -18,5 +18,15 @@
         ,
         <% end%>
         <% end %>
+    ],
+    "media": [
+        <% @item.mediums.each do |medium| %>
+        {
+            "id": <%= medium.id %>
+        }
+        <% if medium != @item.mediums.last %>
+        ,
+        <% end%>
+        <% end %>
     ]
 }
