@@ -11,7 +11,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205191232) do
+ActiveRecord::Schema.define(:version => 20121206203122) do
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.date     "date"
+    t.string   "content_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.boolean  "published"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.string   "altitude"
+    t.integer  "author_id"
+    t.integer  "parent_id"
+  end
+
+  create_table "items_tags", :id => false, :force => true do |t|
+    t.integer "item_id"
+    t.integer "tag_id"
+  end
+
+  create_table "media", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "media_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "item_id"
+    t.integer  "author_id"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

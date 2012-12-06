@@ -1,5 +1,14 @@
 Nuitinfo::Application.routes.draw do
 
+  resources :tags
+
+
+  resources :media
+
+
+  resources :items
+
+
   devise_for :users
 
   root to: 'home#index'

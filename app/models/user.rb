@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  #Relation
+  has_many :items
+  has_many :mediums
+
   def self.authenticate(email, password)
     user = User.find_for_authentication(:email => email)
     if (user)
