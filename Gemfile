@@ -3,12 +3,14 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem 'devise'
+gem 'rb-readline'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
   gem 'sqlite3'
+  gem 'annotate', '~> 2.5.0'
 end
 
 # Gems used only for assets and not required
