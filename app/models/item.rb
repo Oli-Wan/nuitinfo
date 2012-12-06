@@ -21,7 +21,7 @@ class Item < ActiveRecord::Base
   attr_accessible :content, :content_type, :date, :name, :published,
                   :latitude, :altitude, :longitude
 
-  #Relations
+  # Relations
   has_many :mediums
   has_and_belongs_to_many :tags
   belongs_to :author, :class_name => 'User'
