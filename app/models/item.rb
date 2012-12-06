@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :content, :content_type, :date, :location, :name, :published,
+  attr_accessible :content, :content_type, :date, :name, :published,
                   :latitude, :altitude, :longitude
 
   #Relations
