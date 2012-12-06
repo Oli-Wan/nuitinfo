@@ -6,5 +6,6 @@ Nuitinfo::Application.routes.draw do
 
   namespace :api do
     match '/auth' => 'authentication#authenticate', via: :post
+    match '/auth_test' => 'authentication#test_token', via: :get
   end
 end
