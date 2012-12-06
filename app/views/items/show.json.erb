@@ -1,0 +1,22 @@
+{
+    "name": "<%= @item.name %>",
+    "content": "<%= @item.content%>",
+    "date": "<%= @item.date %>",
+    "published": <%= @item.published %>,
+    "longitude": "<%= @item.longitude %>",
+    "latitude": "<%= @item.latitude %>",
+    "altitude": "<%= @item.altitude %>",
+    "content_type": "<%= @item.content_type %>",
+    "author_id": <%= @item.author.id %>,
+    "parent_id": <%= @item.parent.id %>,
+    "tags": [
+        <% @item.tags.each do |tag| %>
+        {
+            "id": <%= tag.id %>
+        }
+        <% if tag != @item.tags.last %>
+        ,
+        <% end%>
+        <% end %>
+    ]
+}
