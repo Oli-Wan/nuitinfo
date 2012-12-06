@@ -42,6 +42,12 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
 
+    @author = User.find(params[:author_id])
+    @parent = Item.find(params[:parent_id])
+
+    @item.parent = @parent
+    @item.author = @author
+
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
