@@ -9,6 +9,7 @@ namespace :db do
 
     make_tags
     make_monuments
+    make_gastro
 
   end
 
@@ -172,6 +173,42 @@ namespace :db do
     event.save
     medium = Medium.new(name: "Ancienne Douane", media_url: "http://upload.wikimedia.org/wikipedia/commons/1/19/Strasbourg_-_Ancienne_Douane.jpg")
     medium.item = event
+    medium.save
+
+  end
+
+  def make_gastro
+
+    gastroTag = Tag.find_by_name("Gastronomie")
+
+    # La cloche à fromage
+
+    item = Item.new(name: "La cloche à Fromage", 
+        content: "Fromagers-affineurs, René TOURRETTE, son fils Olivier et Luc SEGAUX pérennisent la tradition du fromage. Ils vous entraînent à sa découverte et apportent la palette des saveurs fromagères jusqu’à votre table gastronomique ou votre magasin de détail spécialisé, en France et en Europe. Suivez les dans leur restaurant “La cloche à fromage”, dans leurs boutiques, au cours de leurs animations et dans leurs conférences d’information et de formation.", 
+        latitude: "7.748598", 
+        longitude: "48.580965", 
+        altitude: "150", 
+        content_type: "text/plain")
+    item.tags << gastroTag
+    item.save
+
+    medium = Medium.new(name: "La cloche a fromage", description: "Un plat de fromage proposé par le restaurant", media_url: "http://pandore.daedelys.org/dionysos/Cloche%20%C3%A0%20Fromage%202011.jpg")
+    medium.item = item
+    medium.save
+
+    # Buerehiesel
+
+    item = Item.new(name: "Buerehiesel", 
+        content: "Le Buerehiesel, restaurant gastronomique étoilé, est une maison typiquement alsacienne, à colombages, nichée en plein cœur du parc de l'Orangerie. Cette somptueuse maison bénéficie d'une situation exceptionnelle : à proximité des institutions et représentations européennes, entourée d'arbres centenaires et bercée par le plan d'eau adjacent. C'est un véritable havre de verdure et de paix en pleine ville.", 
+        latitude: "7.774966", 
+        longitude: "48.591739", 
+        altitude: "150", 
+        content_type: "text/plain")
+    item.tags << gastroTag
+    item.save
+
+    medium = Medium.new(name: "Buerehiesel - La terrasse", description: "La terrasse du buerehiesel", media_url: "http://www.etoiles-alsace.com/images/member/le-buerehiesel/Buerehiesel-7.jpg")
+    medium.item = item
     medium.save
 
   end
