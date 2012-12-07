@@ -9,7 +9,7 @@
 #  content_type :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  published    :boolean
+#  published    :boolean          default(TRUE)
 #  longitude    :string(255)
 #  latitude     :string(255)
 #  altitude     :string(255)
