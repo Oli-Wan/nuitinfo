@@ -1,18 +1,96 @@
 <!DOCTYPE html>
-<html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]>
+<html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
 <head>
-    <title>Nuitinfo</title>
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <meta charset="utf-8"/>
+
+    <!-- Uncomment to make IE8 render like IE7 -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+    <!-- Included CSS Files -->
+    <%= stylesheet_link_tag "application" %>
+    <!-- Included JS Files  -->
     <%= javascript_include_tag "application" %>
+
     <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="top-bar fixed">
+    <ul>
+        <li class="name">
+            <a href="/">
+                <h1>
+                    <%= image_tag 'logo.png' %></h1>
+            </a></li>
+    </ul>
+
+    <section>
+        <ul class="right">
+            <% unless user_signed_in? -%>
+                <li>
+                    <%= link_to "Se connecter", new_user_session_path %>
+                </li>
+                <li>
+                    <%= link_to "S'inscrire", new_user_registration_path %>
+                </li>
+            <% end %>
+        </ul>
+    </section>
+</nav>
+
+<div class="banner">
+    <br/><br/><br/><br/><br/>
+
+    <p class="baseline">Enrichissons le <span class="blue">patrimoine</span> d’Alsace !</p>
+    <br/>
+
+    <p>
+        <%= link_to "Découvrez le patrimoine", items_path, class: "large button" %>
+        <a href="#" class="large button">Partagez vos expériences</a>
+    </p>
+</div>
+
+<br><br>
 
 <% flash.each do |key, value| %>
-    <%= content_tag(:div, "#{key}-#{value}") %>
+    <%= content_tag(:div, value, class: "alert-box #{key}") %>
 <% end %>
 
-<%= yield %>
+<div class="container">
+    <%= yield %>
+</div>
+<footer class="row">
+    <div class="twelve columns">
+        <hr/>
+        <div class="row">
 
+            <div class="six columns">
+                <p>&copy; Copyright no one at all. Go to town.</p>
+            </div>
+
+            <div class="six columns">
+                <ul class="link-list right">
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
 </body>
 </html>
