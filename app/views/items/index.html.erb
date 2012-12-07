@@ -8,8 +8,8 @@
             <table class="twelve">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Content</th>
+                    <th>Nom</th>
+                    <th>Description</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -20,9 +20,9 @@
                     <tr>
                         <td><%= item.name %></td>
                         <td><%= item.content %></td>
-                        <td><%= link_to 'Show', item %></td>
-                        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-                        <td><%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+                        <td><%= link_to 'Voir', item, class: "small button" %></td>
+                        <td><%= link_to 'Editer', edit_item_path(item), class: "small button" %></td>
+                        <td><%= link_to 'Supprimer', item, class: "small button", method: :delete, data: {confirm: 'Are you sure?'} %></td>
                     </tr>
                 <% end %>
                 </tbody>

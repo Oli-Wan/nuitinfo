@@ -19,7 +19,7 @@
 
 class Item < ActiveRecord::Base
   attr_accessible :content, :content_type, :date, :name, :published,
-                  :latitude, :altitude, :longitude
+                  :latitude, :altitude, :longitude, :parent_id
 
   # Relations
   has_many :mediums

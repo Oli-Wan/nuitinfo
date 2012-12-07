@@ -1,25 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="row">
+        <div class="twelve columns centered">
+            <%= link_to 'Retour', items_path, class: "small button" %>
+            <%= link_to 'Editer', edit_item_path(@item), class: "small button" %>
 
-<p>
-    <b>Name:</b>
-    <%= @item.name %>
-</p>
+            <p id="notice"><%= notice %></p>
 
-<p>
-    <b>Content:</b>
-    <%= @item.content %>
-</p>
+            <p>
+                <b>Name:</b>
+                <%= @item.name %>
+            </p>
 
-<p>
-    <b>Date:</b>
-    <%= @item.date %>
-</p>
+            <p>
+                <b>Content:</b>
+                <%= @item.content %>
+            </p>
 
-<p>
-    <b>Content type:</b>
-    <%= @item.content_type %>
-</p>
+            <p>
+                <b>Date:</b>
+                <%= @item.date %>
+            </p>
 
+            <p>
+                <b>Content type:</b>
+                <%= @item.content_type %>
+            </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+        </div>
+    </div>
+</div>

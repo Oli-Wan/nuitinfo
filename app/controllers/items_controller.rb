@@ -43,6 +43,8 @@ class ItemsController < ApplicationController
   # GET /items/new.json
   def new
     @item = Item.new
+    @items = Item.all
+    @tags = Tag.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -52,7 +54,14 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @items = Item.all
+    @tags = Tag.all
     @item = Item.find(params[:id])
+    params[:tags_id] = Array.new
+    @item.tags.each do |tag|
+      params[:tags_id] << tag.id
+    end
+    @items.delete(@item)
   end
 
   # POST /items
@@ -109,8 +118,8 @@ class ItemsController < ApplicationController
     @item.author = @author
 
     @tags = Array.new
-    params[:tags].each do |tag|
-      @tags << Tag.find(tag[:id])
+    params[:tags_id].each do |tag|
+      @tags << Tag.find(tag)
     end
 
     @item.tags = @tags

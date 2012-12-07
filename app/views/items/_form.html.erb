@@ -1,33 +1,51 @@
 <%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+    <% if @item.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-      <% @item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+            <ul>
+                <% @item.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
+
+    <%= f.label :name %><br/>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
+
+
+    <%= f.label :content %><br/>
     <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
+
+
+    <%= f.label :date %><br/>
     <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :content_type %><br />
+
+
+    <%= f.label :content_type %><br/>
     <%= f.text_field :content_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+    <%= f.label :longitude %><br/>
+    <%= f.text_field :longitude %>
+
+
+    <%= f.label :latitude %><br/>
+    <%= f.text_field :latitude %>
+
+
+    <%= f.label :altitude %><br/>
+    <%= f.text_field :altitude %>
+
+
+    <%= f.label :parent %>
+    <%= f.collection_select :parent_id, @items, :id, :name %>
+
+    <%= f.label :tags %>
+    <%= select_tag('tags_id', options_from_collection_for_select(@tags, 'id', 'name'), {:multiple => true, :size => 6}) %>
+
+
+    <%= f.submit class: "small button" %>
 <% end %>

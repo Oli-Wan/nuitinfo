@@ -1,6 +1,13 @@
-<h1>Editing item</h1>
+<div class="row">
+    <div class="row">
+        <div class="twelve columns centered">
+            <%= link_to 'Voir', @item, class: "small button" %>
+            <%= link_to 'Retour', items_path, class: "small button" %>
 
-<%= render 'form' %>
+            <h2>Editer</h2>
 
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', items_path %>
+            <%= render 'form' %>
+
+        </div>
+    </div>
+</div>
