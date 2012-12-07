@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :destroy, :edit]
+
   # GET /items
   # GET /items.json
   #
@@ -9,7 +11,7 @@ class ItemsController < ApplicationController
   def index
 
     query_parts = []
-    
+
     if (params[:tag_name])
       query_parts << "tags.name LIKE '#{params[:tag_name]}'"
     end
