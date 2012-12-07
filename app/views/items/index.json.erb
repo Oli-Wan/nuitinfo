@@ -1,5 +1,5 @@
 [
-    <%= @items.each do |item| %>
+    <% @items.each do |item| %>
     {
         "id": <%= item.id %>,
         "name": "<%= item.name %>",
@@ -10,12 +10,13 @@
         "latitude": "<%= item.latitude %>",
         "altitude": "<%= item.altitude %>",
         "content_type": "<%= item.content_type %>",
-        "author_id": <%= item.author ? item.author.id : nil %>,
-        "parent_id": <%= item.parent ? item.parent.id : nil %>,
+        "author_id": <%= item.author ? item.author.id : 'null' %>,
+        "parent_id": <%= item.parent ? item.parent.id : 'null' %>,
         "tags": [
             <% item.tags.each do |tag| %>
             {
-                "id": <%= tag.id %>
+                "id": <%= tag.id %>,
+                "name": "<%= tag.name%>"
             }
             <% if tag != item.tags.last %>
             ,
@@ -23,11 +24,14 @@
             <% end %>
         ],
         "media": [
-            <% @item.mediums.each do |medium| %>
+            <% item.mediums.each do |medium| %>
             {
-                "id": <%= medium.id %>
+                "id": <%= medium.id %>,
+                "name": "<%= medium.name %>",
+                "media_url": "<%= medium.media_url%>",
+                "description": "<%= medium.description%>"
             }
-            <% if medium != @item.mediums.last %>
+            <% if medium != item.mediums.last %>
             ,
             <% end%>
             <% end %>
