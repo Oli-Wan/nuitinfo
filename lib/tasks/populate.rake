@@ -33,8 +33,8 @@ namespace :db do
 
     item = Item.new(name: "Notre Dame de Strasbourg", 
         content: "Notre Dame de Strasbourg est la deuxième cathédrale la plus visité de France. Représentative du style gothique et du haut de ses 142 mètres, elle fut l’édifice le plus haut du monde de 1647 à 1874. Le site a été utilisé par plusieurs édifices religieux successifs depuis l’occupation romaine. En 1015, l’évêque de Strasbourg Werner de Habsbourg et l'empereur Henri II posèrent la première pierre d'une nouvelle cathédrale sur les ruines d’un édifice carolingien. De style ottonien, elle brûle en 1176. Le chantier est lancé par un nouvel évêque,  Henri de Hasenbourg et cinq maîtres d'oeuvres se succèdent. La construction débute par le chœur et le transept pour s’achever en 1439.", 
-        latitude: "7.7505556", 
-        longitude: "48.5816667", 
+        latitude: "48.5816667", 
+        longitude: "7.7505556", 
         altitude: "153", 
         content_type: "text/plain")
     item.tags << monumentTag
@@ -82,8 +82,8 @@ namespace :db do
 
     item = Item.new(name: "Place Kléber", 
       content: "Tout d’abord nommée Barfüsserplatz puis Waffenplatz, la place Kléber doit son nom à l’inauguration du mausolée à la gloire du général Jean-Baptiste Kléber. Celui-ci fut le commandant suprême de l’armée d’Égypte et fut assassiné au Caire en 1800. Au nord de la place, on trouve l’Aubette, bâtiment néo-classique construit en 1778. Celui- ci était d’abord un corps de garde à partir duquel était envoyé les ordres à l’aube, d’où son nom. Conservatoire de musique puis complexe de loisirs, l’Aubette est aujourd’hui un centre regroupant boutiques et restaurants. La place Kléber est aussi connue pour être le centre des rassemblements à Strasbourg.", 
-      latitude: "7.746111", 
-      longitude: "48.5833333", 
+      latitude: "48.5833333", 
+      longitude: "7.746111", 
       altitude: "152", 
       content_type: "text/plain")
     item.tags << monumentTag
@@ -125,8 +125,8 @@ namespace :db do
 
     item = Item.new(name: "Gare de Strasbourg-Ville", 
       content: "Inaugurée le 15 aout 1883, la gare de Strasbourg est le centre d’une importante étoile ferroviaire à cinq branches. Elle a été construite par les autorités allemandes au carrefour des grands axes internationaux Paris-Vienne et Bâle-Cologne. Le bâtiment s’étend sur deux étages et 128 mètres de long.", 
-      latitude: "7.7344444", 
-      longitude: "48.5850000", 
+      latitude: "48.5850000", 
+      longitude: "7.7344444", 
       altitude: "153", 
       content_type: "text/plain")
     item.tags << monumentTag
@@ -152,8 +152,8 @@ namespace :db do
 
     item = Item.new(name: "Ancienne Douane", 
       content: "L’ancienne Douane est un bâtiment situé dans la grande île de Strasbourg qui représente le coeur historique de la ville. Depuis 1948, elle est classée monument historique. Construite sous l’impulsion de la corporation des bateliers, elle avait pour but de contrôler, taxer et stocker les marchandises transitant le long du Rhin. Aujourd’hui, on y trouve une restaurant, une brasserie traditionnelle et une galerie d’exposition. Le batiement a été détruit pendant la seconde guerre mondiale et reconstruite en 1956.", 
-      latitude: "7.7497222", 
-      longitude: "48.5794444", 
+      latitude: "48.5794444", 
+      longitude: "7.7497222", 
       altitude: "151", 
       content_type: "text/plain")
     item.tags << monumentTag
@@ -185,8 +185,8 @@ namespace :db do
 
     item = Item.new(name: "La cloche à Fromage", 
         content: "Fromagers-affineurs, René TOURRETTE, son fils Olivier et Luc SEGAUX pérennisent la tradition du fromage. Ils vous entraînent à sa découverte et apportent la palette des saveurs fromagères jusqu’à votre table gastronomique ou votre magasin de détail spécialisé, en France et en Europe. Suivez les dans leur restaurant “La cloche à fromage”, dans leurs boutiques, au cours de leurs animations et dans leurs conférences d’information et de formation.", 
-        latitude: "7.748598", 
-        longitude: "48.580965", 
+        latitude: "48.580965", 
+        longitude: "7.748598", 
         altitude: "150", 
         content_type: "text/plain")
     item.tags << gastroTag
@@ -200,8 +200,8 @@ namespace :db do
 
     item = Item.new(name: "Buerehiesel", 
         content: "Le Buerehiesel, restaurant gastronomique étoilé, est une maison typiquement alsacienne, à colombages, nichée en plein cœur du parc de l'Orangerie. Cette somptueuse maison bénéficie d'une situation exceptionnelle : à proximité des institutions et représentations européennes, entourée d'arbres centenaires et bercée par le plan d'eau adjacent. C'est un véritable havre de verdure et de paix en pleine ville.", 
-        latitude: "7.774966", 
-        longitude: "48.591739", 
+        latitude: "48.591739", 
+        longitude: "7.774966", 
         altitude: "150", 
         content_type: "text/plain")
     item.tags << gastroTag
