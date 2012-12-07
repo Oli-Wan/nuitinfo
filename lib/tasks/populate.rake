@@ -68,7 +68,7 @@ namespace :db do
     medium.item = event
     medium.save
 
-    medium = Medium.new(name: "Façade extérieure", description: "Une façade extérieure de la cathédrale", media_url: "https://umdrive.memphis.edu/g-wangcenter/www/images/Strasbourg_2007/Cathedral_Strasbourg.JPG")
+    medium = Medium.new(name: "Façade extérieure", description: "Une façade extérieure de la cathédrale", media_url: "http://photoblogue.net/wp-content/uploads/2009/01/cathedrale-strasbourg.jpg")
     medium.item = item
     medium.save
 
