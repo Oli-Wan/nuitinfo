@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(:version => 20121206203122) do
     t.text     "content"
     t.date     "date"
     t.string   "content_type"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.boolean  "published"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "published",    :default => true
     t.string   "longitude"
     t.string   "latitude"
     t.string   "altitude"

@@ -1,7 +1,9 @@
 class AddPublishedToItem < ActiveRecord::Migration
-  def change
-    change_table :items do |t|
-      t.boolean :published
-    end
+  def up
+    add_column :items, :published, :boolean, default: true
+  end
+
+  def down
+  	remove_column :items, :published
   end
 end
