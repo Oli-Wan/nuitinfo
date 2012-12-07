@@ -7,12 +7,13 @@
     "latitude": "<%= @item.latitude %>",
     "altitude": "<%= @item.altitude %>",
     "content_type": "<%= @item.content_type %>",
-    "author_id": <%= @item.author.id %>,
-    "parent_id": <%= @item.parent.id %>,
+    "author_id": <%= @item.author ? @item.author.id : nil %>,
+    "parent_id": <%= @item.parent ? @item.parent.id : nil %>,
     "tags": [
         <% @item.tags.each do |tag| %>
         {
-            "id": <%= tag.id %>
+            "id": <%= tag.id %>,
+            "name":<%= tag.name%>
         }
         <% if tag != @item.tags.last %>
         ,
@@ -22,11 +23,31 @@
     "media": [
         <% @item.mediums.each do |medium| %>
         {
-            "id": <%= medium.id %>
+            "id": <%= medium.id %>,
+            "name":<%= medium.name %>,
+            "media_url":<%= medium.media_url%>,
+            "description":<%= medium.description%>
         }
         <% if medium != @item.mediums.last %>
         ,
         <% end%>
         <% end %>
+    ],
+    "children": [
+        <% @item.children.each do |child| %>
+        {
+            "name": "<%= child.name %>",
+            "content": "<%= child.content%>",
+            "date": "<%= child.date %>",
+            "published": <%= child.published %>,
+            "longitude": "<%= child.longitude %>",
+            "latitude": "<%= child.latitude %>",
+            "altitude": "<%= child.altitude %>",
+            "content_type": "<%= child.content_type %>"
+        }
+        <% if child != @item.children.last %>
+        ,
+        <% end%>
+        <%end%>
     ]
 }
