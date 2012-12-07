@@ -7,13 +7,13 @@
     "latitude": "<%= @item.latitude %>",
     "altitude": "<%= @item.altitude %>",
     "content_type": "<%= @item.content_type %>",
-    "author_id": <%= @item.author ? @item.author.id : nil %>,
-    "parent_id": <%= @item.parent ? @item.parent.id : nil %>,
+    "author_id": <%= @item.author ? @item.author.id : 'null' %>,
+    "parent_id": <%= @item.parent ? @item.parent.id : 'null' %>,
     "tags": [
         <% @item.tags.each do |tag| %>
         {
             "id": <%= tag.id %>,
-            "name":<%= tag.name%>
+            "name": "<%= tag.name%>"
         }
         <% if tag != @item.tags.last %>
         ,
@@ -24,9 +24,9 @@
         <% @item.mediums.each do |medium| %>
         {
             "id": <%= medium.id %>,
-            "name":<%= medium.name %>,
-            "media_url":<%= medium.media_url%>,
-            "description":<%= medium.description%>
+            "name": "<%= medium.name %>",
+            "media_url": "<%= medium.media_url%>",
+            "description": "<%= medium.description%>"
         }
         <% if medium != @item.mediums.last %>
         ,
