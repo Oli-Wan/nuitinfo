@@ -2,6 +2,11 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    #tag_name = params[:tag_name]
+    #@tagged_item = Item.find_all(joins: :tags, conditions: "tags.name LIKE '#{tag_name}'")
+
+    #parent_id = params[:parent_id]
+    #@item_with_parent = @tagged_item.find_all_by_parent_id(parent_id)
 
     @items = Item.all
 
