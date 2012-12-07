@@ -10,6 +10,8 @@ namespace :db do
     make_tags
     make_monuments
     make_gastro
+    make_art
+    make_library
 
   end
 
@@ -113,7 +115,7 @@ namespace :db do
     medium.item = event
     medium.save
 
-    medium = Medium.new(name: "Noël", description: "Noël, une tradition respectée.", media_url: "Le sapin de Noël de la place Kléber en 2010 http://upload.wikimedia.org/wikipedia/commons/4/40/Le_village_de_No%C3%ABl_au_pied_du_sapin_2010.jpg")
+    medium = Medium.new(name: "Noël", description: "Le sapin de Noël de la place Kléber en 2010.", media_url: "http://upload.wikimedia.org/wikipedia/commons/4/40/Le_village_de_No%C3%ABl_au_pied_du_sapin_2010.jpg")
     medium.item = item
     medium.save
 
@@ -148,6 +150,10 @@ namespace :db do
     medium.item = event
     medium.save
 
+    medium = Medium.new(name: "Verrière Gare de Strasbourg", description: "La magnifique verrière de la gare de Strasbourg.", media_url: "http://www.dna.fr/fr/images/1D533E55-0EA4-491F-931D-761B7ACD5FEF/DNA_03/la-grande-verriere-capte-lumiere-et-poussiere-photo-dna-marc-rollmann.jpg")
+    medium.item = item
+    medium.save
+
     # Ancienne douanne
 
     item = Item.new(name: "Ancienne Douane", 
@@ -173,6 +179,10 @@ namespace :db do
     event.save
     medium = Medium.new(name: "Ancienne Douane", media_url: "http://upload.wikimedia.org/wikipedia/commons/1/19/Strasbourg_-_Ancienne_Douane.jpg")
     medium.item = event
+    medium.save
+
+    medium = Medium.new(name: "Devanture Ancienne Douane", media_url: "http://apprr.cef.fr/IMG/jpg/strasbourg_l_ancienne_douane.jpg")
+    medium.item = item
     medium.save
 
   end
@@ -208,6 +218,80 @@ namespace :db do
     item.save
 
     medium = Medium.new(name: "Buerehiesel - La terrasse", description: "La terrasse du buerehiesel", media_url: "http://www.etoiles-alsace.com/images/member/le-buerehiesel/Buerehiesel-7.jpg")
+    medium.item = item
+    medium.save
+
+    # Skaechele
+
+    item = Item.new(name: "Skaechele", 
+        content: "Une cuisine très raffinée et retravaillée au gout du jour vous y attend. Un cuisinier qui travaille avec les produits du terroir et du moment ainsi qu'un service très chaleureux vous feront passer un agréable moment ins Kaechele Winstub...", 
+        latitude: "48.582271", 
+        longitude: "7.74259", 
+        altitude: "150", 
+        content_type: "text/plain")
+    item.tags << gastroTag
+    item.save
+
+    medium = Medium.new(name: "Skaechele - Devanture", description: "La devanture du skaechele", media_url: "http://mastercorbeau.files.wordpress.com/2011/11/skaechele3-e1321886461126.jpeg")
+    medium.item = item
+    medium.save
+
+  end
+
+  def make_art
+
+    tag = Tag.find_by_name("Art")
+
+    # Musée d'Art moderne et contemporain
+
+    item = Item.new(name: "Musée d'Art moderne et contemporain", 
+        content: "Inauguré en 1998, le musée d'Art moderne et contemporain s'élève au bord de l'Ill au cœur du quartier historique de Strasbourg. Œuvre des Ateliers d'architecture AFA, Adrien Fainsilber et Associés, sa conception repose sur la lisibilité et l'ouverture, offrant un accès privilégié aux différents départements du musée: espaces d'exposition, collections permanentes, cabinets d' Arts graphiques et de photographie, service éducatif, bibliothèque, auditorium, ainsi qu'à un restaurant et une librairie-boutique. Les collections, enrichies de plusieurs dépôts d'institutions et de particuliers, couvrent la période allant de 1870 à nos jours et un domaine géographique principalement centré sur l'Europe occidentale.", 
+        latitude: "48.580667", 
+        longitude: "7.736428", 
+        altitude: "150", 
+        content_type: "text/plain")
+    item.tags << tag
+    item.save
+
+    medium = Medium.new(name: "Art Moderne", description: "Le musée d’art moderne et contemporain", media_url: "http://www.crdp-strasbourg.fr/data/albums/geo_strasbourg_centre/img_hr/image18.jpg")
+    medium.item = item
+    medium.save
+
+  end
+
+  def make_library
+
+    eventTag = Tag.find_by_name("Évènements")
+    tag = Tag.find_by_name("Bibliothèques")
+
+    # Bibliothèque nationale et universitaire
+
+    item = Item.new(name: "Bibliothèque nationale et universitaire", 
+        content: "Avant 1870, Strasbourg disposait de deux bibliothèques qui furent détruite dans la nuit du 24 au 25 août 1870. Une seule bibliothèque a été reconstruite une année après grâce à un appel aux dons lancé par Karl August Barack. Lors de la seconde guerre mondiale, pour protéger les ouvrages, tous les livres ont été évacués et abrités dans le Puy-de-Dome, à Clermont-Ferrand ou encore en dans différents endroits en Alsace.", 
+        latitude: "48.5872222", 
+        longitude: "7.7561111", 
+        altitude: "152", 
+        content_type: "text/plain")
+    item.tags << tag
+    item.save
+
+    event = Item.new(name: "Reconstruction de la bibliothèque", date: "1871-08-09")
+    event.tags << eventTag
+    event.parent = item
+    event.save
+    medium = Medium.new(name: "Reconstruction BNU", media_url: "http://upload.wikimedia.org/wikipedia/commons/6/6f/BNU_en_1895.jpg")
+    medium.item = event
+    medium.save
+
+    event = Item.new(name: "Projet de restructuration de la bibliothèque", date: "2003-01-01")
+    event.tags << eventTag
+    event.parent = item
+    event.save
+    medium = Medium.new(name: "Restructuration BNU", media_url: "http://www.all-free-photos.com/images/alsace/PI25290-hr.jpg")
+    medium.item = event
+    medium.save
+
+    medium = Medium.new(name: "Bibliothèque nationale et universitaire", media_url: "http://www.jmrw.com/France/Strasbourg/images/BNU.jpg")
     medium.item = item
     medium.save
 
