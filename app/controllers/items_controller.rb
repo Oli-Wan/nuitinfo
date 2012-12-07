@@ -1,14 +1,24 @@
 class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
+  #
+  # params:
+  # => tag_name : the name of the tag
+  # => parent_id : to retrieve children
+  #
   def index
-    #tag_name = params[:tag_name]
-    #@tagged_item = Item.find_all(joins: :tags, conditions: "tags.name LIKE '#{tag_name}'")
 
-    #parent_id = params[:parent_id]
-    #@item_with_parent = @tagged_item.find_all_by_parent_id(parent_id)
+    query_parts = []
+    
+    if (params[:tag_name])
+      query_parts << "tags.name LIKE '#{params[:tag_name]}'"
+    end
 
-    @items = Item.all
+    if (params[:parent_id])
+      query_parts << "parent_id = #{params[:parent_id]}"
+    end
+
+    @items = Item.find(:all, joins: :tags, conditions: query_parts)
 
     respond_to do |format|
       format.html # index.html.erb
