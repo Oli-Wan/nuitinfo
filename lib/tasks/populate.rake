@@ -120,6 +120,60 @@ namespace :db do
     medium.item = item
     medium.save
 
+    # Gare de Strasbourg
+
+    item = Item.new(name: "Gare de Strasbourg-Ville", 
+      content: "Inaugurée le 15 aout 1883, la gare de Strasbourg est le centre d’une importante étoile ferroviaire à cinq branches. Elle a été construite par les autorités allemandes au carrefour des grands axes internationaux Paris-Vienne et Bâle-Cologne. Le bâtiment s’étend sur deux étages et 128 mètres de long.", 
+      latitude: "7.7344444", 
+      longitude: "48.5850000", 
+      altitude: "153", 
+      content_type: "text/plain")
+    item.tags << monumentTag
+    item.save
+
+    event = Item.new(name: "Travaux de rénovation", date: "2007-01-01")
+    event.tags << eventTag
+    event.parent = item
+    event.save
+    medium = Medium.new(name: "Gare de Strasburg", media_url: "http://www.deviantart.com/download/200235028/gare_strasbourg_by_vemoridi-d3b7qc4.jpg")
+    medium.item = event
+    medium.save
+
+    event = Item.new(name: "Arrivée du tgv", date: "2007-06-01")
+    event.tags << eventTag
+    event.parent = item
+    event.save
+    medium = Medium.new(name: "Gare de Strasbourg", media_url: "http://upload.wikimedia.org/wikipedia/commons/2/22/TGV_strasbourg.jpg")
+    medium.item = event
+    medium.save
+
+    # Ancienne douanne
+
+    item = Item.new(name: "Ancienne Douane", 
+      content: "L’ancienne Douane est un bâtiment situé dans la grande île de Strasbourg qui représente le coeur historique de la ville. Depuis 1948, elle est classée monument historique. Construite sous l’impulsion de la corporation des bateliers, elle avait pour but de contrôler, taxer et stocker les marchandises transitant le long du Rhin. Aujourd’hui, on y trouve une restaurant, une brasserie traditionnelle et une galerie d’exposition. Le batiement a été détruit pendant la seconde guerre mondiale et reconstruite en 1956.", 
+      latitude: "7.7497222", 
+      longitude: "48.5794444", 
+      altitude: "151", 
+      content_type: "text/plain")
+    item.tags << monumentTag
+    item.save
+
+    event = Item.new(name: "Classée monument historique", date: "1948-01-01")
+    event.tags << eventTag
+    event.parent = item
+    event.save
+    medium = Medium.new(name: "Ancienne Douane", media_url: "http://upload.wikimedia.org/wikipedia/commons/c/cd/Absolute_Ancienne_douane_01.JPG")
+    medium.item = event
+    medium.save
+
+    event = Item.new(name: "Reconstruction de l’ancienne douane", date: "1958-01-01")
+    event.tags << eventTag
+    event.parent = item
+    event.save
+    medium = Medium.new(name: "Ancienne Douane", media_url: "http://upload.wikimedia.org/wikipedia/commons/1/19/Strasbourg_-_Ancienne_Douane.jpg")
+    medium.item = event
+    medium.save
+
   end
 
 end
